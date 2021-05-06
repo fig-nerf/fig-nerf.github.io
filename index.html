@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="FiG-NeRF: Figure-Ground Neural Radiance Fields for 3D Object Category Modelling.">
+  <meta name="keywords" content="NeRF, FiG-NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FiG-NeRF</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPF1LG1QMP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NPF1LG1QMP');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">FiG-NeRF:<br/>
+            Figure Ground Neural Radiance Fields for<br/>
+            3D Object Category Modelling</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://chrisdxie.github.io" target="_blank">Christopher Xie</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://keunhong.com" target="_blank">Keunhong Park</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+            <span class="author-block">
+              <a href="http://www.ricardomartinbrualla.com" target="_blank">Ricardo Martin-Brualla</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://matthewalunbrown.com" target="_blank">Matthew Brown</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Washington,</span>
+            <span class="author-block"><sup>2</sup>Google Research</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2104.08418" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <video id="teaser" class="center" autoplay muted loop width="100%">
+          <source src="media/teaser.mp4"
+                  type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+          <span class="fignerf">FiG-NeRF</span> can learn high quality 3D object category models from casually captured images of objects.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered" style="margin-bottom: 50px">
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified">
+
+          We investigate the use of Neural Radiance Fields (NeRF) to learn high quality 3D object category models from collections of input images. In contrast to previous work, we are able to do this whilst simultaneously separating foreground objects from their varying backgrounds. We achieve this via a 2-component NeRF model, <span class="fignerf">FiG-NeRF</span>, that prefers explanation of the scene as a geometrically constant background and a deformable foreground that represents the object category. We show that this method can learn accurate 3D object category models using only photometric supervision and casually captured images of the objects. Additionally, our 2-part decomposition allows the model to perform accurate and crisp amodal segmentation. We quantitatively evaluate our method with view synthesis and image fidelity metrics, using synthetic, lab-captured, and in-the-wild data. Our results demonstrate convincing 3D object category modelling that exceed the performance of existing methods.
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Abstract. -->
+
+  <!-- Paper video. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-two-thirds">
+      <h2 class="title is-2">Overview Video</h2>
+      <div class="publication-video">
+        <iframe src="https://www.youtube.com/embed/WtZxuv_hkic?rel=0&amp;showinfo=0"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <!--/ Paper video. -->
+</section>
+
+
+<section class="section">
+  <div class="container">
+
+    <!-- Results header. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h1 class="title is-1">More Results</h1>
+        <div class="content has-text-justified">
+          We show extra results and baseline comparisons on three datasets. We demonstrate both instance interpolations (shape+color, shape, and color) and viewpoint interpolation/extrapolation. Please see the paper for more details.
+        </div>
+      </div>
+    </div>
+    <!--/ Results header. -->
+
+  <div class="tabs is-toggle is-fullwidth">
+    <ul>
+      <li class="is-active"><a>Shape + Color</a></li>
+      <li><a>Color Only</a></li>
+      <li><a>Shape Only</a></li>
+      <li><a>Viewpoint</a></li>
+    </ul>
+  </div>
+
+  <!-- Results videos. -->
+  <div class="columns is-vcentered has-text-centered is-full-width">
+    <div class="column">
+      <h2 class="title is-2">Cars</h2>
+      <div class="publication-video">
+        
+        <video class="interpolation-video tabs-content" controls>
+          <source src="media/results_videos/cars/shape_and_color_compressed.mp4"
+                  type="video/mp4">
+        </video>
+        
+        <!--
+        <iframe class="tabs-content" src="media/results_videos/cars/shape_and_color_compressed.mp4"
+                frameborder="0" autoplay="" allowfullscreen>
+        </iframe>
+        -->
+      </div>
+    </div>
+
+    <div class="column">
+      <h2 class="title is-2">Glasses</h2>
+      <div class="publication-video">
+        
+        <video class="interpolation-video tabs-content" controls>
+          <source src="media/results_videos/glasses/shape_and_color_compressed.mp4"
+                  type="video/mp4">
+        </video>
+        
+        <!--
+        <iframe class="tabs-content" src="media/results_videos/glasses/shape_and_color_compressed.mp4"
+                frameborder="0" autoplay="" allowfullscreen>
+        </iframe>      </div>
+        -->
+      </div>
+    </div>
+
+    <div class="column">
+      <h2 class="title is-2">Cups</h2>
+      <div class="publication-video">
+        
+        <video class="interpolation-video tabs-content" controls>
+          <source src="media/results_videos/cups/shape_and_color_compressed.mp4"
+                  type="video/mp4">
+        </video>
+        
+        <!--
+        <iframe class="tabs-content" src="media/results_videos/cups/shape_and_color_compressed.mp4"
+                frameborder="0" autoplay="" allowfullscreen>
+        </iframe>
+        -->
+      </div>
+    </div>
+
+
+  </div>
+  <!--/ Results videos. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{xie2021fignerf
+  author    = {Xie, Christopher and Park, Keunhong and Sinha, and Martin-Brualla, Ricardo and Brown, Matthew},
+  title     = {FiG-NeRF: Figure-Ground Neural Radiance Fields for 3D Object Category Modelling},
+  journal   = {arXiv preprint arXiv:2104.08418},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/chrisdxie" class="external-link" target="_blank" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          This template is graciously provided by <a href="https://nerfies.github.io/" target="_blank">NeRFies</a>. Check it out!
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
